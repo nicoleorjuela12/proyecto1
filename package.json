@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "json": "^11.0.0"
+  },
+
+  "scripts": {
+    "start-apiproyecto": "json-server --watch formularioregis.json --port 3000"
+  }
+}
