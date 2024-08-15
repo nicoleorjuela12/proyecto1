@@ -75,6 +75,94 @@ object-fit: cover;
 
 
 
+<<<<<<< HEAD
+=======
+.footer-area p {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+.footer-area p.lead {
+  font-size: 19px;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.footer-area p.lead a {
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.footer-area p.lead a:hover {
+  color: #d0a772;
+}
+
+.footer-area p a {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.footer-area p a:hover {
+  color: #d0a772;
+}
+
+.f-social {
+  padding-bottom: 10px;
+  margin-right: 25px;
+  margin: 0px;
+  margin-top: 20px;
+}
+
+.f-social li a {
+  font-size: 25px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-right: 10px;
+}
+
+.f-social li a:hover {
+  color:linear-gradient(to right, #ffedb4, #ffdc8b, #fff1c6);/* Color dorado */
+}
+
+.icon-content {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.icon-content .icon-link {
+  color: #fff;
+  font-size: 30px;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+.icon-content .icon-link:hover {
+  color: #d4af37; /* Color dorado */
+}
+
+.copyright {
+  
+  margin-bottom: -100px;
+  position: relative;
+  display: block;
+  background-color: #0000009d;
+  border-top: 1px dashed #c3a687; /* Color café claro */
+  padding: 30px 0;
+  z-index: 1;
+  color: #c3a687; /* Color café claro */
+}
+
+.copyright .company-name {
+  font-size: 16px;
+  text-align: center;
+}
+
+.copyright .company-name a {
+  font-size: 16px;
+  color: #d4af37; /* Color dorado */
+}
+>>>>>>> 8b741f15c858a787df4a6a23fbac3b007b88b994
 .card-img {
   height: 200px; /* Ajusta este valor según tus necesidades */
   width: auto;
