@@ -60,7 +60,7 @@ object-fit: cover;
 }
 
 .imagenfondofooter {
-  background-image: url('https://img.freepik.com/foto-gratis/cerca-brillo-dorado-espacio-copia_23-2148761514.jpg?t=st=1723343012~exp=1723346612~hmac=3ebacdda699cbfe7aac6cb02308ffb889c1bf42f9682d5e42e04daff2788e058&w=996'); /* Reemplaza 'path-to-your-background-image.jpg' con la ruta a tu imagen */
+  background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20210823/pngtree-old-paper-texture-gradient-dark-brown-background-image_767804.jpg'); /* Reemplaza 'path-to-your-background-image.jpg' con la ruta a tu imagen */
   background-attachment: scroll;
   background-clip: initial;
   background-color: rgba(102, 184, 91, 0);
@@ -75,8 +75,7 @@ object-fit: cover;
 
 
 
-<<<<<<< HEAD
-=======
+
 .footer-area p {
   font-size: 15px;
   color: rgba(255, 255, 255, 0.8);
@@ -162,7 +161,6 @@ object-fit: cover;
   font-size: 16px;
   color: #d4af37; /* Color dorado */
 }
->>>>>>> 8b741f15c858a787df4a6a23fbac3b007b88b994
 .card-img {
   height: 200px; /* Ajusta este valor según tus necesidades */
   width: auto;
