@@ -6,11 +6,11 @@
         <link rel="icon" type="image/png" href="https://i.ibb.co/m92z5kN/Fondo-mila-removebg-preview.png">
         <title>Pagina de Registro -- Mila GastroFusion</title>
         <script src="form-handler.js"></script>
-
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
         <script src="https://cdn.tailwindcss.com"></script>
         <!-- Estilos barra -->
         <link rel="stylesheet" type="text/css" href="../estilos/estilos_barra.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.8.1/cdn.min.js" defer></script>      
         <style>
             .espacio_imagen1 {
               background: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url(https://i.ibb.co/j5LRZmB/Captura-de-pantalla-2024-07-29-135007.png) center center;
@@ -19,62 +19,117 @@
             .imagen_formulario {
                 background: linear-gradient(rgba(2, 2, 2, .7), rgba(0, 0, 0, .7)),url(https://i.ibb.co/nRVNh1H/En-mila-nuestras-tardes-se-ven-asi-ya-nos-conoces.jpg) center center;
             }
-            
+
+            body {
+                font-family: 'Lato', sans-serif; 
+            }
+
+
+
             
         </style>
        
     </head>
     <body>
 
-        <nav class="border-gray-200 px-4 lg:px-6 py-2.5 navbar_gradient shadow-lg " >
-            <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl" >
-                <div class="flex items-center">
-                    <div class="w-12 h-12 mr-4">
-                        <img class="w-full h-full object-contain" src="https://i.ibb.co/m92z5kN/Fondo-mila-removebg-preview.png" alt="Logo">
+        <div class="flex flex-col items-center justify-center mb-16" >
+            <div class="flex flex-col">
+                <!-- Page Scroll Progress -->
+                <div class="fixed inset-x-0 top-0 z-50 h-0.5 mt-0.5
+                    bg-yellow-300" :style="`width: ${percent}%`">
+                </div>
+
+                <nav class="flex justify-around py-4 navbar_gradient
+                    backdrop-blur-md shadow-md w-full
+                    fixed top-0 left-0 right-0 z-10 ">
+
+                    <!-- Logo Container -->
+                    <div class="flex items-center">
+                        <!-- Logo -->
+                        <a class="cursor-pointer">
+                            <h3 class="text-2xl font-medium text-blue-500">
+                                <img class="h-16 w-42 mt-1 object-cover" src="https://i.ibb.co/gj0Bpcc/logo-empresa-mila.png" alt="logo-empresa-mila">
+                            </h3>
+                            
+                        </a>
+                        <p class="ml-4 font-semibold font-dancing mb-1 mt-1">
+                            Mila - GastroFusion
+                        </p>                        
                     </div>
-                    <p class="block py-2 pr-4 pl-3 text-black italic border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-yellow-500 font-semibold text-gray-800 transition-all duration-300">Mila - GastroFusion</p>
-                </div>
-      
-                <div class="flex items-center lg:order-2">
-                  <a href="../login.html" class="text-gray-800 hover:bg-white focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 border-0 no-underline">Iniciar sesión</a>
-                  <a href="./Formulario_registro/Formulario_registro.html" class="text-white bg-yellow-400 hover:bg-purple-300 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 no-underline">Registrarse</a>
-                    <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="mobile-menu-2" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-                        </svg>
-                        <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </div>
-                <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-                  <ul class="flex flex-col lg:flex-row lg:space-x-8 lg:mt-0">
-                    <li>
-                        <a href="../index.html" class="block py-2 px-4 text-gray-700 transition-colors duration-300 hover:text-yellow-600 hover:bg-yellow-100 rounded-lg no-underline">Inicio</a>
-                    </li>
-                    <li>
-                        <button class="block py-2 px-4 text-gray-700 transition-colors duration-300 hover:text-yellow-600 hover:bg-yellow-100 rounded-lg">Productos</button>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-4 text-gray-700 transition-colors duration-300 hover:text-yellow-600 hover:bg-yellow-100 rounded-lg no-underline">Servicios</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-4 text-gray-700 transition-colors duration-300 hover:text-yellow-600 hover:bg-yellow-100 rounded-lg no-underline">Nosotros</a>
-                    </li>
-                  </ul>
-                
-                </div>
+                    <!-- Links Section -->
+                    <div class="items-center hidden space-x-8 lg:flex">
+                        <a class="flex text-gray-600 hover:text-yellow-800
+                            cursor-pointer transition-colors duration-300">
+                            Inicio
+                        </a>
+
+                        <a class="flex text-gray-600 
+                            cursor-pointer transition-colors duration-300
+                            font-semibold text-yellow-600">
+                            Productos
+                        </a>
+
+                        <a class="flex text-gray-600 hover:text-yellow-800
+                            cursor-pointer transition-colors duration-300">
+                            Servicios
+                        </a>
+
+                        <a class="flex text-gray-600 hover:text-yellow-800
+                            cursor-pointer transition-colors duration-300">
+                            Nosotros
+                        </a>
+
+                    </div>
+
+                    <!-- Icon Menu Section -->
+                    <div class="flex items-center space-x-5">
+                        <!-- Register -->
+                        <a class="flex text-gray-600 hover:text-yellow-800
+                            cursor-pointer transition-colors duration-300">
+
+                            <svg class="fill-current h-5 w-5 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0L11.34 .03L15.15 3.84L16.5 2.5C19.75 4.07 22.09 7.24 22.45 11H23.95C23.44 4.84 18.29 0 12 0M12 4C10.07 4 8.5 5.57 8.5 7.5C8.5 9.43 10.07 11 12 11C13.93 11 15.5 9.43 15.5 7.5C15.5 5.57 13.93 4 12 4M12 6C12.83 6 13.5 6.67 13.5 7.5C13.5 8.33 12.83 9 12 9C11.17 9 10.5 8.33 10.5 7.5C10.5 6.67 11.17 6 12 6M.05 13C.56 19.16 5.71 24 12 24L12.66 23.97L8.85 20.16L7.5 21.5C4.25 19.94 1.91 16.76 1.55 13H.05M12 13C8.13 13 5 14.57 5 16.5V18H19V16.5C19 14.57 15.87 13 12 13M12 15C14.11 15 15.61 15.53 16.39 16H7.61C8.39 15.53 9.89 15 12 15Z" />
+                            </svg>
+
+                            Registrate
+                        </a>
+
+                        <!-- Login -->
+                        <a class="flex text-gray-600 
+                            cursor-pointer transition-colors duration-300
+                            font-semibold text-yellow-800">
+
+                            <svg class="fill-current h-5 w-5 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M10,17V14H3V10H10V7L15,12L10,17M10,2H19A2,2 0 0,1 21,4V20A2,2 0 0,1 19,22H10A2,2 0 0,1 8,20V18H10V20H19V4H10V6H8V4A2,2 0 0,1 10,2Z" />
+                            </svg>
+
+                            Inicia Sesion
+                        </a>
+                    </div>
+                </nav>
             </div>
-        </nav>
+        </div>
         
-        <div class="h-screen flex flex-col lg:flex-row">
+        
+        
+        <div class="h-screen flex flex-col lg:flex-row mt-0">
             <!-- Imagen de fondo -->
             <div class="hidden lg:flex w-full lg:w-1/2 espacio_imagen1 justify-around items-center">
                 <div class="bg-black opacity-20 inset-0 z-0"></div>
-                <div class="w-full mx-auto px-20 flex-col items-center space-y-6">
-                  <h1  class="text-white font-bold text-4xl font-sansc ">Mila GastroFusion</h1>
-                  <p class="text-white ">Un sueño hecho realidad! Nos complace brindarte toda una experiencia alrededor de la mesa, en un espacio lleno de magia.</p>
+                <div class="w-full mx-auto px-20 flex-col items-center space-y-6 mb-4">
+                  <h1  class="text-white font-bold text-4xl font-sansc  ml-28  font-normal text-yellow-300">Beneficios de Registrarse</h1>
+                  <ul class="text-white list-style-type: none list-inside ml-20 padding-bottom-36 text-1xl font-normal ml-28 " >
+                    <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Invitaciones a Eventos Especiales</li>
+                    <li> <i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Notificaciones y Recordatorios</li>
+                    <li> <i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Podras realizar tus reservas y cotizaciones</li>
+                    <li> <i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Obtendras descuentos al realizar tu pedido en linea</li>
+                    </ul>                
                 </div>
             </div>
             
