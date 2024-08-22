@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Reserva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom styles for icon sizes */
+        .icon {
+            width: 20px;
+            height: 20px;
+            color: #6b7280; /* Tailwind's gray-500 color */
+        }
+        .bar {
+            background-color: #ffdb4a; /* Tailwind's yellow-400 color */
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="bg-black shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-wrap gap-4 justify-center h-full">
+            <!-- Form Containers 1 y 2 alineados horizontalmente -->
+            <div class="flex flex-wrap">
+                <!-- Primer formulario -->
+                <div class="w-full md:w-1/2 px-4">
+                    <div class="bar text-white px-4 py-2 rounded-t flex items-center">
+                        <i class="fas fa-user icon mr-2"></i>
+                        <span class="font-bold uppercase">Datos del Usuario</span>
+                    </div>
+                    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-auto">
+                        <div class="flex flex-wrap -mx-3 mb-6">
+                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-first-name-1">
+                                    <i class="fas fa-user icon mr-2"></i>
+                                    Nombre:
+                                </label>
+                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="grid-first-name-1" type="text">
+                                <p class="text-red-500 text-xs italic">Datos de la persona que tiene la reserva</p>
+                            </div>
+                            <div class="w-full md:w-1/2 px-3">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-last-name-1">
+                                    <i class="fas fa-phone icon mr-2"></i>
+                                    Celular:
+                                </label>
+                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="grid-last-name-1" type="text">
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap -mx-3 mb-6">
+                            <div class="w-full px-3">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-password-1">
+                                    <i class="fas fa-envelope icon mr-2"></i>
+                                    Correo:
+                                </label>
+                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="grid-password-1" type="email">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Segundo formulario -->
+                <div class="w-full md:w-1/2 px-4">
+                    <div class="bar text-white px-4 py-2 rounded-t flex items-center">
+                        <i class="fas fa-info-circle icon mr-2"></i>
+                        <span class="font-bold uppercase">Informacion reserva</span>
+                    </div>
+                    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-auto" style="height: 84%;">
+                        <div class="flex flex-wrap -mx-3 mb-6">
+                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-first-name-2">
+                                    <i class="fas fa-users icon mr-2"></i>
+                                    Número personas:
+                                </label>
+                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="grid-first-name-2" type="text">
+                            </div>
+                            <div class="w-full md:w-1/2 px-3">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-last-name-2">
+                                    <i class="fas fa-calendar icon mr-2"></i>
+                                    Fecha:
+                                </label>
+                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500  rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="grid-last-name-2" type="text">
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap -mx-3 mb-6">
+                            <div class="w-full px-3">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-password-2">
+                                    <i class="fas fa-clock icon mr-2"></i>
+                                    Hora:
+                                </label>
+                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="grid-password-2" type="text" placeholder="HH:MM">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="w-full flex justify-center">
+                <div class="bar text-white px-4 py-2 rounded-t flex items-center" >
+                    <i class="fas fa-comments icon mr-2"></i>
+                    <span class="font-bold uppercase">Información adicional</span>
+                </div>
+                <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col mx-auto" style="width: 90%;">
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-first-name-3">
+                                <i class="fas fa-comments icon mr-2"></i>
+                                Comentarios:
+                            </label>
+                            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="grid-first-name-3" type="text">
+                            <p class="text-red-500 text-xs italic">Puedes decir observaciones sobre tu reserva o el color de tu decoración</p>
+                        </div>
+                        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-decoracion-3">
+                                <i class="fas fa-palette icon mr-2"></i>
+                                Decoración
+                            </label>
+                            <div class="relative">
+                                <select class="block appearance-none w-full bg-gray-200 border border-yellow-500 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="grid-decoracion-3">
+                                    <option>Fecha especial</option>
+                                    <option>Aniversario</option>
+                                    <option>Cumpleaños</option>
+                                    <option>Otro</option>
+                                    <option>Ninguna</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/3 px-3">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-actividades-3">
+                                <i class="fas fa-briefcase icon mr-2"></i>
+                                Actividades
+                            </label>
+                            <div class="relative">
+                                <select class="block appearance-none w-full bg-gray-200 border border-yellow-500 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-yellow-500" id="grid-actividades-3">
+                                    <option>Pintura de esculturas</option>
+                                    <option>Dibujar</option>
+                                    <option>Parques</option>
+                                    <option>Ninguna</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 px-3">
+                            <div class="relative">
+                                <!-- Campo oculto -->
+                                <input type="hidden" id="grid-estado-reserva-3" name="estadoReserva" value="Confirmada">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
