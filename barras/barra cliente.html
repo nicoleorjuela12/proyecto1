@@ -9,12 +9,17 @@
     <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Extra styles for the dropdown */
+        /* Estilos adicionales */
         .dropdown-menu {
             display: none;
         }
         .dropdown-menu.show {
             display: block;
+        }
+        /* Ajustar tamaño del icono del carrito */
+        .custom-cart-icon {
+            width: 30px;
+            height: 30px;
         }
     </style>
 </head>
@@ -25,9 +30,8 @@
             <div class="fixed inset-x-0 top-0 z-50 h-0.5 mt-0.5 bg-yellow-300" :style="`width: ${percent}%`"></div>
 
             <nav class="flex justify-around py-4 navbar_gradient backdrop-blur-md shadow-md w-full fixed top-0 left-0 right-0 z-10 h-24">
-
                 <!-- Logo Container -->
-                <div class="flex items-center">
+                <div class="flex items-center ">
                     <!-- Logo -->
                     <a class="cursor-pointer">
                         <h3 class="text-2xl font-medium text-blue-500">
@@ -38,15 +42,50 @@
                 </div>
 
                 <!-- Links Section -->
-                <div class="items-center hidden space-x-8 lg:flex">
+                <div class="items-center hidden space-x-8 lg:flex ">
                     <a class="flex text-gray-900 hover:text-yellow-800 cursor-pointer font-semibold transition-colors duration-300">Inicio</a>
                     <a class="flex text-gray-600 cursor-pointer transition-colors duration-300 font-semibold text-yellow-600">Productos</a>
-                    <a class="flex text-gray-900 hover:text-yellow-800 cursor-pointer transition-colors duration-300 font-semibold">Servicios</a>
-                    <a class="flex text-gray-900 hover:text-yellow-800 cursor-pointer transition-colors duration-300 font-semibold">Nosotros</a>
+                    <div class="flex flex-col items-center">
+                        <a class="text-gray-900 hover:text-yellow-800 cursor-pointer transition-colors duration-300 font-semibold">
+                            <i class="fa fa-calendar-check-o"></i> Eventos
+                        </a>
+                    </div>                    
+                    <a class="flex text-gray-900 hover:text-yellow-800 cursor-pointer font-semibold transition-colors duration-300">Servicios</a>
+
                 </div>
 
-                <!-- User Icon with Dropdown Menu -->
-                <div class="flex items-center lg:order-2 ml-8 relative">
+                <!-- Iconos con textos -->
+                <div class="flex items-center space-x-8 mx-[-4]">
+                    <div class="flex flex-col items-center">
+                        <a class="text-gray-900 hover:text-yellow-800 cursor-pointer transition-colors duration-300 font-semibold" id="reservas-menu-button">
+                            <i class="fa fa-calendar"></i> Reservas
+                        </a>
+                        <div id="reservas-menu" class="dropdown-menu absolute bg-white border border-gray-200 rounded-lg shadow-lg mt-2">
+                            <ul class="py-1 text-sm text-gray-700">
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Reservar mesa</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Reserva Local</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <a class="text-gray-900 hover:text-yellow-800 cursor-pointer transition-colors duration-300 font-semibold">
+                            <i class="fa fa-shopping-basket"></i> Pedidos
+                        </a>
+                    </div>
+                    
+                </div>
+
+                <!-- User Icon and Cart -->
+                <div class="flex items-center space-x-4">
+                    <div class="flex flex-col items-center">
+                        <a class="text-gray-900 hover:text-yellow-800 cursor-pointer transition-colors duration-300 font-semibold">
+                            <img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="Carrito" class="custom-cart-icon">
+                        </a>
+                    </div>
                     <button id="user-menu-button" class="flex items-center text-gray-800 hover:bg-gray-100 focus:ring-4 focus:ring-yellow-300 font-medium rounded-full p-2">
                         <!-- User icon -->
                         <svg class="w-8 h-8 text-gray-800" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -57,9 +96,6 @@
                         <ul class="py-1 text-sm text-gray-700" aria-labelledby="user-menu-button">
                             <li>
                                 <a href="#" class="block px-4 py-2 hover:bg-gray-100">Perfil</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Configuración</a>
                             </li>
                             <li>
                                 <a href="#" class="block px-4 py-2 hover:bg-gray-100">Cerrar sesión</a>
@@ -83,8 +119,29 @@
     </div>
 
     <script>
-        document.getElementById('user-menu-button').addEventListener('click', function() {
-            document.getElementById('user-menu').classList.toggle('show');
+        document.getElementById('user-menu-button').addEventListener('click', function () {
+            const userMenu = document.getElementById('user-menu');
+            userMenu.classList.toggle('show');
+        });
+
+        document.getElementById('reservas-menu-button').addEventListener('click', function () {
+            const reservasMenu = document.getElementById('reservas-menu');
+            reservasMenu.classList.toggle('show');
+        });
+
+        document.addEventListener('click', function(event) {
+            const isClickInsideUserMenu = document.getElementById('user-menu-button').contains(event.target);
+            const isClickInsideUserMenuContent = document.getElementById('user-menu').contains(event.target);
+            const isClickInsideReservasMenu = document.getElementById('reservas-menu-button').contains(event.target);
+            const isClickInsideReservasMenuContent = document.getElementById('reservas-menu').contains(event.target);
+
+            if (!isClickInsideUserMenu && !isClickInsideUserMenuContent) {
+                document.getElementById('user-menu').classList.remove('show');
+            }
+
+            if (!isClickInsideReservasMenu && !isClickInsideReservasMenuContent) {
+                document.getElementById('reservas-menu').classList.remove('show');
+            }
         });
     </script>
 </body>

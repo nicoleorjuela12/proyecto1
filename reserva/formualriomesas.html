@@ -1,0 +1,56 @@
+<div class="items-center flex flex-wrap mt-10">
+    <div class="w-full md:w-4/12 ml-auto mr-auto px-4 relative">
+        <img alt="imagen local" class="max-w-full rounded-lg shadow-lg" src="https://i.ibb.co/xHqpvVx/En-mila-nuestras-tardes-se-ven-asi-ya-nos-conoces-1.jpg">
+        <div class="absolute inset-0 bg-black opacity-30 rounded-lg w-100 ml-4 mr-4"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+            <button class="bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600" onclick="openModal('modal2')">
+                <i class="fas fa-calendar-plus"></i> Recomendaciones reservar local
+            </button>
+        </div>
+    </div>
+    <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
+        <!-- Formulario para reservar local -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h3 class="text-3xl font-semibold text-center mb-6">Reserva nuestro Local</h3>
+            <form id="formLocal" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Formulario aquí (idéntico al modal) -->
+                <!-- Incluye campos de fecha, hora, número de personas, ocasión, etc. -->
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div id="modal2" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white p-4 rounded-lg shadow-lg w-full md:w-4/5 lg:w-3/5 xl:w-1/3 border-2 border-yellow-500 rounded-md ml-28">
+        <h2 class="text-lg font-semibold mb-4 text-center">Recomendaciones para Reservar Local</h2>
+        <ul class="list-none mt-6">
+            <li class="flex space-x-3">
+                <i class="fas fa-check-circle text-yellow-500 text-xl"></i>
+                <span class="text-gray-800 ml-4">Reserva con al menos 1 mes de anticipación para asegurar disponibilidad.</span>
+            </li>
+            <li class="flex space-x-3">
+                <i class="fas fa-check-circle text-yellow-500 text-xl"></i>
+                <span class="text-gray-800 ml-4">El local tiene capacidad para 50 personas; solo se reserva para grupos de más de 15.</span>
+            </li>
+            <li class="flex space-x-3">
+                <i class="fas fa-check-circle text-yellow-500 text-xl"></i>
+                <span class="text-gray-800 ml-4">Verifica las restricciones de horario y las normas del restaurante.</span>
+            </li>
+            <li class="flex space-x-3">
+                <i class="fas fa-check-circle text-yellow-500 text-xl"></i>
+                <span class="text-gray-800 ml-4">Presentar el correo de confirmación de la reserva al llegar.</span>
+            </li>
+            <li class="flex space-x-3">
+                <i class="fas fa-check-circle text-yellow-500 text-xl"></i>
+                <span class="text-gray-800 ml-4">Realizar un depósito para asegurar la reserva si es requerido.</span>
+            </li>
+        </ul>
+        <div class="mt-6 flex justify-between">
+            <button class="bg-yellow-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-yellow-600" onclick="closeModal('modal2')">Cerrar</button>
+        </div>
+    </div>
+</div>
