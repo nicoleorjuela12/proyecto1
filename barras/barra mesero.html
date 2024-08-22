@@ -4,23 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barra de navegación cliente</title>
+    <link rel="stylesheet" type="text/css" href="../estilos/estilos_barra.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../estilos/estilos_barra.css">
-    <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Estilos adicionales */
         .dropdown-menu {
             display: none;
+            position: absolute;
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-width: 160px;
+            z-index: 1000;
         }
-        .dropdown-menu.show {
+
+        .dropdown-menu a {
+            padding: 12px 16px;
             display: block;
+            color: #0a0a0a;
+            text-decoration: none;
         }
-        /* Ajustar tamaño del icono del carrito */
-        .custom-cart-icon {
-            width: 30px;
-            height: 30px;
+
+        .dropdown-menu a:hover {
+            background-color: #f5d878;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
         }
     </style>
 </head>
@@ -59,6 +71,16 @@
                     <a class="flex items-center text-gray-900 hover:text-yellow-800 cursor-pointer transition-colors duration-300 font-semibold">
                         <i class="fa fa-concierge-bell mr-2"></i> Servicios
                     </a>
+
+                    <!-- Dropdown Tareas -->
+                    <div class="relative dropdown">
+                        <a class="flex items-center text-gray-900 hover:text-yellow-800 cursor-pointer transition-colors duration-300 font-semibold">
+                            <i class="fa fa-tasks mr-2"></i> Tareas
+                        </a>
+                        <div class="dropdown-menu mt-2 rounded-lg shadow-lg bg-white">
+                            <a href="#">Pedidos</a>
+                        </div>
+                    </div>
                 </div>
     
                 <!-- User and Cart Section -->
@@ -76,9 +98,5 @@
             </nav>
         </div>
     </div>
-    
-    
-    
-
 </body>
 </html>

@@ -1,35 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barra de navegación cliente</title>
+    <title>Barra de navegación administrador</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../estilos/estilos_barra.css">
-    <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Estilos adicionales */
         .dropdown-menu {
             display: none;
+            position: absolute;
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-width: 160px;
+            z-index: 1000;
+            left: 0; /* Alineado a la izquierda */
         }
-        .dropdown-menu.show {
+
+        .dropdown-menu a {
+            padding: 12px 16px;
+            display: block;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-menu {
             display: block;
         }
-        /* Ajustar tamaño del icono del carrito */
-        .custom-cart-icon {
-            width: 30px;
-            height: 30px;
+
+        /* Asegurarse de que el menú desplegable esté debajo del contenedor */
+        .relative {
+            position: relative;
         }
     </style>
 </head>
+
 <body>
     <div class="flex flex-col items-center justify-center mb-24">
         <div class="flex flex-col">
             <!-- Page Scroll Progress -->
             <div class="fixed inset-x-0 top-0 z-50 h-0.5 mt-0.5 bg-yellow-300" :style="`width: ${percent}%`"></div>
-    
+
             <nav class="flex justify-between items-center py-4 navbar_gradient backdrop-blur-md shadow-md w-full fixed top-0 left-0 right-0 z-10 h-24 px-8">
                 <!-- Logo Container -->
                 <div class="flex items-center space-x-4">
@@ -38,7 +58,7 @@
                         <img class="h-20 object-cover" src="https://i.ibb.co/gj0Bpcc/logo-empresa-mila.png" alt="logo-empresa-mila">
                     </a>
                 </div>
-    
+
                 <!-- Links Section -->
                 <div class="hidden lg:flex items-center space-x-12">
                     <a class="flex items-center text-gray-900 hover:text-yellow-800 cursor-pointer font-semibold transition-colors duration-300">
@@ -47,9 +67,17 @@
                     <a class="flex items-center text-yellow-600 cursor-pointer transition-colors duration-300 font-semibold">
                         <i class="fa fa-box mr-2"></i> Productos
                     </a>
-                    <a class="flex items-center text-gray-900 hover:text-yellow-800 cursor-pointer transition-colors duration-300 font-semibold">
-                        <i class="fa fa-calendar mr-2"></i> Reservas
-                    </a>
+    
+                    <!-- Dropdown Reservas -->
+                    <div class="relative dropdown">
+                        <a class="flex items-center text-gray-900 hover:text-yellow-800 cursor-pointer transition-colors duration-300 font-semibold">
+                            <i class="fa fa-calendar mr-2"></i> Reservas
+                        </a>
+                        <div class="dropdown-menu mt-2 rounded-lg shadow-lg bg-white">
+                            <a href="#">Reserva local</a>
+                            <a href="#">Reserva mesa</a>
+                        </div>
+                    </div>
                     <a class="flex items-center text-gray-900 hover:text-yellow-800 cursor-pointer transition-colors duration-300 font-semibold">
                         <i class="fa fa-shopping-basket mr-2"></i> Pedidos
                     </a>
@@ -59,26 +87,32 @@
                     <a class="flex items-center text-gray-900 hover:text-yellow-800 cursor-pointer transition-colors duration-300 font-semibold">
                         <i class="fa fa-concierge-bell mr-2"></i> Servicios
                     </a>
+
+                    
                 </div>
-    
+
                 <!-- User and Cart Section -->
                 <div class="flex items-center space-x-6">
                     <a class="flex items-center">
                         <img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="Carrito" class="h-8 w-8">
                     </a>
-                    <button id="user-menu-button" class="flex items-center text-gray-800 hover:bg-gray-100 focus:ring-4 focus:ring-yellow-300 font-medium rounded-full p-2">
-                        <!-- User icon -->
-                        <svg class="w-8 h-8 text-gray-800" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM4 20c0-2.21 4-4 8-4s8 1.79 8 4v1H4v-1z" clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
+                    <!-- Dropdown User -->
+                    <div class="relative dropdown">
+                        <button id="user-menu-button" class="flex items-center text-gray-800 hover:bg-gray-100 focus:ring-4 focus:ring-yellow-300 font-medium rounded-full p-2">
+                            <!-- User icon -->
+                            <svg class="w-8 h-8 text-gray-800" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM4 20c0-2.21 4-4 8-4s8 1.79 8 4v1H4v-1z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu mt-2 rounded-lg shadow-lg bg-white">
+                            <a href="#">Mi perfil</a>
+                            <a href="#">Cerrar sesión</a>
+                        </div>
+                    </div>
                 </div>
             </nav>
         </div>
     </div>
-    
-    
-    
-
 </body>
+
 </html>
