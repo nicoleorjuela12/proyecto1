@@ -3,23 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Reserva mesa</title>
+    <title>Formulario de Reserva local</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../estilos/freservas.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../scripts/reserva.js" defer></script>
-    <style>
-        .hidden-when-modal-open {
-            display: none !important;
-        }
-
-    </style>
 </head>
 <body class="bg-gray-100">
     <section class="min-h-screen">
         <div class="bg-image shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-wrap gap-4 justify-center h-full">
-            <form class="w-full flex flex-col gap-4 h-full">
+            <form id="reservation-form" class="w-full flex flex-col gap-4 h-full" action="" method="post">
                 <div class="flex-container mt-20 w-full h-full">
                     <!-- Primer formulario -->
                     <div class="w-full md:w-1/2 px-4">
@@ -70,23 +64,30 @@
                                         <i class="fas fa-users icon mr-2"></i>
                                         Número personas:
                                     </label>
-                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-[#D2B48C] rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-[#D2B48C]" id="grid-first-name-2" type="text">
+                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-[#D2B48C] rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-[#D2B48C]" id="grid-first-name-2" type="text" required>
                                 </div>
                                 <div class="w-full md:w-1/2 px-3">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-last-name-2">
                                         <i class="fas fa-calendar icon mr-2"></i>
                                         Fecha:
                                     </label>
-                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-[#D2B48C] rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-[#D2B48C]" id="grid-last-name-2" type="text">
+                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-[#D2B48C] rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-[#D2B48C]" id="grid-last-name-2" type="date">
                                 </div>
                             </div>
                             <div class="flex flex-wrap -mx-3 mb-6 mt-10">
-                                <div class="w-full px-3">
-                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-password-2">
+                                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-start-time">
                                         <i class="fas fa-clock icon mr-2"></i>
-                                        Hora:
+                                        Hora de inicio:
                                     </label>
-                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-[#D2B48C] rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-[#D2B48C]" id="grid-password-2" type="text" placeholder="HH:MM">
+                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-[#D2B48C] rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-[#D2B48C]" id="grid-start-time" type="time">
+                                </div>
+                                <div class="w-full md:w-1/2 px-3">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-end-time">
+                                        <i class="fas fa-clock icon mr-2"></i>
+                                        Hora de fin:
+                                    </label>
+                                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-[#D2B48C] rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-[#D2B48C]" id="grid-end-time" type="time">
                                 </div>
                             </div>
                         </div>
@@ -102,47 +103,41 @@
                         </div>
                         <div class="flex flex-wrap -mx-3 mb-6 mt-12">
                             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-first-name-3">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-comments">
                                     <i class="fas fa-comments icon mr-2"></i>
                                     Comentarios:
                                 </label>
-                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-[#D2B48C] rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-[#D2B48C]" id="grid-first-name-3" type="text">
+                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-[#D2B48C] rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-[#D2B48C]" id="grid-comments" type="text" required>
                                 <p class="text-red-500 text-xs italic">Puedes decir observaciones sobre tu reserva o el color de tu decoración</p>
                             </div>
                             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-decoracion-3">
-                                    <i class="fas fa-palette icon mr-2"></i>
-                                    Decoración
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-services">
+                                    <i class="fas fa-cogs icon mr-2"></i>
+                                    Tipo de servicios
                                 </label>
                                 <div class="relative">
-                                    <select class="block appearance-none w-full bg-gray-200 border border-[#D2B48C] text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-[#D2B48C]" id="grid-decoracion-3">
+                                    <select class="block appearance-none w-full bg-gray-200 border border-[#D2B48C] text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-[#D2B48C]" id="grid-services" required>
                                         <option value="">Seleccione</option>
-                                        <option>Ninguna</option>
-                                        <option>Fecha especial</option>
-                                        <option>Aniversario</option>
-                                        <option>Cumpleaños</option>
-                                        <option>Otro</option>
+                                        <option value="Licoreria">Licorería</option>
+                                        <option value="Decoracion">Decoración</option>
+                                        <option value="Iluminacion">Iluminación - Sonido</option>
+                                        <option value="Ninguno">Ninguno</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-actividades-3">
-                                    <i class="fas fa-tasks icon mr-2"></i>
-                                    Actividades
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-image">
+                                    <i class="fas fa-image icon mr-2"></i>
+                                    Imagen de decoración
                                 </label>
-                                <div class="relative">
-                                    <select class="block appearance-none w-full bg-gray-200 border border-[#D2B48C] text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-[#D2B48C]" id="grid-actividades-3">
-                                        <option value="">Seleccione</option>
-                                        <option>Ninguna</option>
-                                        <option>Visita a la granja</option>
-                                        <option>Tour</option>
-                                        <option>Caminata</option>
-                                        <option>Otro</option>
-                                    </select>
-                                </div>
+                                <input class="block w-full bg-gray-200 text-gray-700 border border-[#D2B48C] rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-[#D2B48C]" id="grid-image" type="file" required>
                             </div>
-                             <!-- Casilla de verificación -->
-                              
+
+                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                <input type="hidden" id="grid-status" name="estado_reserva" value="Confirmada">
+                            </div>
+                            
+                            <!-- Casilla -->
                             <div class="w-full flex justify-center mt-6 mb-6">
                                 <div class="center-checkbox">
                                     <input type="checkbox" id="terms-checkbox" class="mr-2 leading-tight" required>
@@ -150,8 +145,8 @@
                                 </div>
                             </div>
 
-                            <div class="w-full flex justify-center">
-                                <button class="bg-[#D2B48C] hover:bg-[#D2B48C] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ease-in-out" type="submit">
+                            <div class="w-full flex justify-center mt-6">
+                                <button id="submit-button" class="bg-[#D2B48C] hover:bg-[#D2B48C] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ease-in-out" type="submit">
                                     Reservar
                                 </button>
                             </div>
@@ -161,32 +156,34 @@
                 
             </form>
         </div>
-
-        
     </section>
 
+    <!-- Modal de términos y condiciones -->
     <div id="terms-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
         <div class="bg-white p-4 rounded-lg shadow-lg w-full md:w-4/5 lg:w-3/5 xl:w-1/3 border-2 border-yellow-500 rounded-md">
             <h2 class="text-lg font-semibold mb-4 text-center">Recomendaciones para Reservar Local</h2>
             <ul class="list-none mt-6">
                 <li class="flex space-x-3">
                     <i class="fas fa-check-circle text-yellow-500 text-xl"></i>
-                    <span class="text-gray-800 ml-4">Reserva con al menos 1 semanas de anticipación para asegurar la disponibilidad de la mesa.</span>
+                    <span class="text-gray-800 ml-4">Reserva con al menos 1 mes de anticipación para asegurar disponibilidad.</span>
                 </li>
                 <li class="flex space-x-3">
                     <i class="fas fa-check-circle text-yellow-500 text-xl"></i>
-                    <span class="text-gray-800 ml-4">Confirma el número de personas para ajustar el espacio en la mesa.</span>
+                    <span class="text-gray-800 ml-4">El local tiene capacidad para 50 personas; solo se reserva para grupos de más de 15.</span>
                 </li>
                 <li class="flex space-x-3">
                     <i class="fas fa-check-circle text-yellow-500 text-xl"></i>
-                    <span class="text-gray-800 ml-4">Llega a tiempo para tu reserva para evitar perder tu mesa, despues de los 15 minutos nos reservamos el derecho de admision</span>
+                    <span class="text-gray-800 ml-4">Verifica las restricciones de horario y las normas del restaurante.</span>
                 </li>
                 <li class="flex space-x-3">
                     <i class="fas fa-check-circle text-yellow-500 text-xl"></i>
-                    <span class="text-gray-800 ml-4">Si necesitas una configuración especial (como una silla para bebé o accesibilidad), notifícalo al hacer la reserva.</span>
+                    <span class="text-gray-800 ml-4">Presentar el correo de confirmación de la reserva al llegar.</span>
+                </li>
+                <li class="flex space-x-3">
+                    <i class="fas fa-check-circle text-yellow-500 text-xl"></i>
+                    <span class="text-gray-800 ml-4">Realizar un depósito para asegurar la reserva si es requerido.</span>
                 </li>
             </ul>
-            
             <div class="flex justify-center mt-4">
                 <button id="close-modal" class="bg-[#D2B48C] text-white font-bold py-2 px-4 rounded">Cerrar</button>
             </div>
@@ -194,15 +191,13 @@
     </div>
 
     <script>
-       document.getElementById('terms-link').addEventListener('click', function(event) {
+        document.getElementById('terms-link').addEventListener('click', function(event) {
             event.preventDefault();
             document.getElementById('terms-modal').classList.remove('hidden');
-            document.querySelectorAll('.bar').forEach(el => el.classList.add('hidden-when-modal-open'));
         });
 
         document.getElementById('close-modal').addEventListener('click', function() {
             document.getElementById('terms-modal').classList.add('hidden');
-            document.querySelectorAll('.bar').forEach(el => el.classList.remove('hidden-when-modal-open'));
         });
 
         document.getElementById('reservation-form').addEventListener('submit', function(event) {
@@ -215,7 +210,6 @@
                 });
             }
         });
-
     </script>
 </body>
 </html>

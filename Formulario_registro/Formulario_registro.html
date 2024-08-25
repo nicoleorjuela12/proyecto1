@@ -5,17 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="https://i.ibb.co/m92z5kN/Fondo-mila-removebg-preview.png">
         <title>Pagina de Registro -- Mila GastroFusion</title>
-        <script src="form-handler.js"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-        <script  src="form-cambiar.js"></script>
-
         <script src="https://cdn.tailwindcss.com"></script>
-        <!-- Estilos barra -->
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://cdn.tailwindcss.com" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../estilos/estilos_barra.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.8.1/cdn.min.js" defer></script>      
         <style>
             .espacio_imagen1 {
-              background: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url(https://i.ibb.co/j5LRZmB/Captura-de-pantalla-2024-07-29-135007.png) center center;
+                background: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url(https://i.ibb.co/j5LRZmB/Captura-de-pantalla-2024-07-29-135007.png) center center;
             }
 
             .imagen_formulario {
@@ -25,26 +23,14 @@
             body {
                 font-family: 'Lato', sans-serif; 
             }
-
-
-
-            
         </style>
-       
     </head>
     <body>
-
-        <div class="flex flex-col items-center justify-center mb-24 " >
+        <div class="flex flex-col items-center justify-center mb-24">
             <div class="flex flex-col">
                 <!-- Page Scroll Progress -->
-                <div class="fixed inset-x-0 top-0 z-50 h-0.5 mt-0.5
-                    bg-yellow-300" :style="`width: ${percent}%`">
-                </div>
-
-                <nav class="flex justify-around py-4 navbar_gradient
-                    backdrop-blur-md shadow-md w-full
-                    fixed top-0 left-0 right-0 z-10 h-24 ">
-
+                <div class="fixed inset-x-0 top-0 z-50 h-0.5 mt-0.5 bg-yellow-300"></div>
+                <nav class="flex justify-around py-4 navbar_gradient backdrop-blur-md shadow-md w-full fixed top-0 left-0 right-0 z-10 h-24">
                     <!-- Logo Container -->
                     <div class="flex items-center">
                         <!-- Logo -->
@@ -52,37 +38,26 @@
                             <h3 class="text-2xl font-medium text-blue-500">
                                 <img class="h-16 w-42 mt-1 object-cover" src="https://i.ibb.co/gj0Bpcc/logo-empresa-mila.png" alt="logo-empresa-mila">
                             </h3>
-                            
                         </a>
                         <p class="ml-4 font-semibold font-dancing mb-1 mt-1">
                             Mila - GastroFusion
-                        </p>                        
+                        </p>
                     </div>
                     <!-- Links Section -->
                     <div class="items-center hidden space-x-8 lg:flex">
-                        <a class="flex text-gray-900 hover:text-yellow-800
-                            cursor-pointer  font-semibold transition-colors duration-300">
+                        <a class="flex text-gray-900 hover:text-yellow-800 cursor-pointer font-semibold transition-colors duration-300">
                             Inicio
                         </a>
-
-                        <a class="flex text-gray-600 
-                            cursor-pointer transition-colors duration-300
-                            font-semibold text-yellow-600 ">
+                        <a class="flex text-gray-600 cursor-pointer transition-colors duration-300 font-semibold text-yellow-600">
                             Productos
                         </a>
-
-                        <a class="flex text-gray-900 hover:text-yellow-800
-                            cursor-pointer transition-colors duration-300  font-semibold">
+                        <a class="flex text-gray-900 hover:text-yellow-800 cursor-pointer transition-colors duration-300 font-semibold">
                             Servicios
                         </a>
-
-                        <a class="flex text-gray-900 hover:text-yellow-800
-                            cursor-pointer transition-colors duration-300  font-semibold">
+                        <a class="flex text-gray-900 hover:text-yellow-800 cursor-pointer transition-colors duration-300 font-semibold">
                             Nosotros
                         </a>
-
                     </div>
-
                     <!-- Icon Menu Section -->
                     <div class="flex items-center lg:order-2">
                         <a href="../login.html" class="text-gray-800 hover:bg-white focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 border-0 no-underline">Iniciar sesión</a>
@@ -100,30 +75,28 @@
                 </nav>
             </div>
         </div>
-        
-        
-        
+
         <div class="h-screen flex flex-col lg:flex-row mt-0">
             <!-- Imagen de fondo -->
             <div class="hidden lg:flex w-full lg:w-1/2 espacio_imagen1 justify-around items-center">
                 <div class="bg-black opacity-20 inset-0 z-0"></div>
                 <div class="w-full mx-auto px-20 flex-col items-center space-y-6 mb-4">
-                  <h1  class="text-white font-bold text-4xl font-sansc  ml-28  font-normal text-yellow-300">Beneficios de Registrarse</h1>
-                  <ul class="text-white list-style-type: none list-inside ml-20 padding-bottom-36 text-1xl font-normal ml-28 " >
-                    <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Invitaciones a Eventos Especiales</li>
-                    <li> <i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Notificaciones y Recordatorios</li>
-                    <li> <i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Podras realizar tus reservas y cotizaciones</li>
-                    <li> <i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Obtendras descuentos al realizar tu pedido en linea</li>
-                    </ul>                
+                    <h1 class="text-white font-bold text-4xl font-sansc ml-28 font-normal text-yellow-300">Beneficios de Registrarse</h1>
+                    <ul class="text-white list-style-type: none list-inside ml-20 padding-bottom-36 text-1xl font-normal ml-28">
+                        <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Invitaciones a Eventos Especiales</li>
+                        <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Notificaciones y Recordatorios</li>
+                        <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Podras realizar tus reservas y cotizaciones</li>
+                        <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Obtendras descuentos al realizar tu pedido en linea</li>
+                    </ul>
                 </div>
             </div>
             
             <div class="flex w-full lg:w-1/2 justify-center items-center imagen_formulario space-y-4 p-4 lg:p-6">
-                <div  class="w-full max-w-2xl px-4 lg:px-6">
-                    <form  action="http://localhost:3000/usuarios" method="post" class="bg-white rounded-lg shadow-lg p-4 lg:p-6 space-y-4 grid grid-cols-1 lg:grid-cols-2 gap-4 border border-gray-200">
+                <div class="w-full max-w-2xl px-4 lg:px-6">
+                    <form action="http://localhost:3000/usuarios" method="post" class="bg-white rounded-lg shadow-lg p-4 lg:p-6 space-y-4 grid grid-cols-1 lg:grid-cols-2 gap-4 border border-gray-200">
                         <h1 style="margin-bottom: 0; padding-bottom: 0;" class="text-gray-800 font-bold text-2xl col-span-2 text-center mb-0 pb-0">¡Regístrate!</h1>
-                        <p  style="margin-bottom: 0; padding-bottom: 0;"class="text-xs font-normal text-gray-600 col-span-2 text-center mb-0 pb-0">Ingresa tus datos personales</p>
-                                                
+                        <p style="margin-bottom: 0; padding-bottom: 0;" class="text-xs font-normal text-gray-600 col-span-2 text-center mb-0 pb-0">Ingresa tus datos personales</p>
+                        
                         <!-- Columna 1 -->
                         
                         <input type="hidden" name="id" value="" />
@@ -164,7 +137,7 @@
                             </div>
                         </div>
                         
-                        <!-- Columna 2 -->
+                        <!-- Columna 2 (continuación) -->
                         <div class="flex flex-col space-y-1">
                             <label for="direccion" class="text-gray-700 font-semibold text-xs">Dirección</label>
                             <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
@@ -172,7 +145,7 @@
                                 <input id="direccion" class="pl-2 w-full outline-none border-none rounded-md text-sm" type="text" name="direccion" required />
                             </div>
                         </div>
-            
+
                         <div class="flex flex-col space-y-1">
                             <label for="barrio" class="text-gray-700 font-semibold text-xs">Barrio</label>
                             <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
@@ -180,7 +153,7 @@
                                 <input id="barrio" class="pl-2 w-full outline-none border-none rounded-md text-sm" type="text" name="barrio" required />
                             </div>
                         </div>
-            
+
                         <div class="flex flex-col space-y-1">
                             <label for="email" class="text-gray-700 font-semibold text-xs">Correo Electrónico</label>
                             <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
@@ -188,7 +161,7 @@
                                 <input id="email" class="pl-2 w-full outline-none border-none rounded-md text-sm" type="email" name="email" required />
                             </div>
                         </div>
-            
+
                         <div class="flex flex-col space-y-1">
                             <label for="contrasena" class="text-gray-700 font-semibold text-xs">Contraseña</label>
                             <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
@@ -196,25 +169,19 @@
                                 <input id="contrasena" class="pl-2 w-full outline-none border-none rounded-md text-sm" type="password" name="contrasena" minlength="8" required />
                             </div>
                         </div>
-            
-                        <div class="flex flex-col space-y-1">
-                            <label for="confirmar_contrasena" class="text-gray-700 font-semibold text-xs">Confirmar Contraseña</label>
-                            <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
-                                <i class="fas fa-lock text-gray-400"></i>
-                                <input id="confirmar_contrasena" class="pl-2 w-full outline-none border-none rounded-md text-sm" type="password" name="confirmar_contrasena" minlength="8" required />
-                            </div>
-                        </div>
 
-                        <input type="hidden" name="rol" value="cliente" />
-            
-                        <!-- Botón de Enviar -->
-                        <button type="submit" class="w-full py-2 px-4 bg-yellow-500 hover:bg-yellow-400 text-white font-semibold rounded-md shadow-md transition duration-300 col-span-2">Registrarse</button>
+
+                        <div class="flex items-center space-x-2 col-span-2 justify-center">
+                            <button type="submit" class="bg-yellow-400 text-white font-semibold py-2 px-4 rounded-md hover:bg-yellow-500 transition duration-300">
+                                Registrarse
+                            </button>
+                            
+                        </div>
                     </form>
                 </div>
             </div>
-            
-            
         </div>
-            
+        <!-- Include the JavaScript file for form validation -->
     </body>
 </html>
+

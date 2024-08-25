@@ -27,3 +27,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+// script.js
+
+// Seleccionar todos los campos de entrada
+const inputs = document.querySelectorAll('input');
+
+// Función para mover el foco al siguiente campo
+const focusNextInput = (e) => {
+  const input = e.target;
+  const inputsArray = Array.from(inputs);
+  const currentIndex = inputsArray.indexOf(input);
+  
+  // Mover el foco al siguiente campo si existe
+  if (currentIndex < inputsArray.length - 1) {
+    inputsArray[currentIndex + 1].focus();
+  }
+};
+
+// Agregar un event listener para cada campo de entrada
+inputs.forEach(input => {
+  input.addEventListener('input', focusNextInput);
+});

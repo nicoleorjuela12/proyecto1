@@ -1,0 +1,47 @@
+
+.bg-image {
+    position: relative;
+    background-image: url('https://i.ibb.co/xHqpvVx/En-mila-nuestras-tardes-se-ven-asi-ya-nos-conoces-1.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    overflow: hidden; /* Ensure that pseudo-element doesn't overflow */
+}
+
+.bg-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 0; 
+}
+/* Custom styles for icon sizes */
+.icon {
+    width: 20px;
+    height: 20px;
+    color: #6b7280; /* Tailwind's gray-500 color */
+}
+.bar {
+    position: absolute; /* Hace la barra posicionada */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    padding: 0.75rem 1rem; /* Ajusta el padding */
+    z-index: 1; /* Asegura que la barra esté al frente */
+}
+.form-container {
+    position: relative; /* Hace que el contenedor padre controle la barra */
+    padding-top: 3.5rem; /* Agrega espacio para que la barra no se superponga al contenido */
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Estira los elementos hijos para que tengan la misma altura */
+}
+
+
+
+
