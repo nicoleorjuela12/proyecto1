@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="https://i.ibb.co/m92z5kN/Fondo-mila-removebg-preview.png">
     <title>Página de Registro -- Mila GastroFusion</title>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" type="text/css" href="../estilos/estilos_barra.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">        
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         .espacio_imagen1 {
             background: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url(https://i.ibb.co/j5LRZmB/Captura-de-pantalla-2024-07-29-135007.png) center center;
@@ -22,69 +22,33 @@
             display: none;
         }
 
-        #rol_community_manager:checked ~ .rol-community-manager,
-        #rol_cajero:checked ~ .rol-cajero,
+        #rol_community_manager:checked ~ .rol-community_manager,
+        #rol_mesero:checked ~ .rol-mesero,
         #rol_administrador:checked ~ .rol-administrador {
             display: block;
         }
     </style>
 </head>
 <body>
-
-    <nav class="border-gray-200 px-4 lg:px-6 py-2.5 navbar_gradient shadow-lg">
-        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-            <div class="flex items-center">
-                <div class="w-12 h-12 mr-4">
-                    <img class="w-full h-full object-contain" src="https://i.ibb.co/m92z5kN/Fondo-mila-removebg-preview.png" alt="Logo">
-                </div>
-                <p class="block py-2 pr-4 pl-3 text-black italic border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-yellow-500 font-semibold text-gray-800 transition-all duration-300">Mila - GastroFusion</p>
-            </div>
-
-            <div class="flex items-center lg:order-2">
-                <a href="login.html" class="text-gray-800 hover:bg-white focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 border-0 no-underline">Iniciar sesión</a>
-                <a href="./Formulario_registro/Formulario_registro.html" class="text-white bg-yellow-400 hover:bg-purple-300 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 no-underline">Registrarse</a>
-                <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="mobile-menu-2" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-                    </svg>
-                    <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-                <ul class="flex flex-col lg:flex-row lg:space-x-8 lg:mt-0">
-                    <li>
-                        <a href="../index.html" class="block py-2 px-4 text-gray-700 transition-colors duration-300 hover:text-yellow-600 hover:bg-yellow-100 rounded-lg no-underline">Inicio</a>
-                    </li>
-                    <li>
-                        <button class="block py-2 px-4 text-gray-700 transition-colors duration-300 hover:text-yellow-600 hover:bg-yellow-100 rounded-lg">Productos</button>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-4 text-gray-700 transition-colors duration-300 hover:text-yellow-600 hover:bg-yellow-100 rounded-lg no-underline">Servicios</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-4 text-gray-700 transition-colors duration-300 hover:text-yellow-600 hover:bg-yellow-100 rounded-lg no-underline">Nosotros</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     
     <div class="h-screen flex flex-col lg:flex-row">
         <!-- Imagen de fondo -->
         <div class="hidden lg:flex w-full lg:w-1/2 espacio_imagen1 justify-around items-center">
             <div class="bg-black opacity-20 inset-0 z-0"></div>
-            <div class="w-full mx-auto px-20 flex-col items-center space-y-6">
-              <h1 class="text-white font-bold text-4xl font-sansc">Mila GastroFusion</h1>
-              <p class="text-white">Un sueño hecho realidad! Nos complace brindarte toda una experiencia alrededor de la mesa, en un espacio lleno de magia.</p>
+            <div class="w-full mx-auto px-20 flex-col items-center space-y-6 mb-4">
+                <h1 class="text-white font-bold text-4xl font-sansc ml-28 font-normal text-yellow-300">Beneficios de Registrarse</h1>
+                <ul class="text-white list-inside ml-20 text-1xl font-normal ml-28">
+                    <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Invitaciones a Eventos Especiales</li>
+                    <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Notificaciones y Recordatorios</li>
+                    <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Podrás realizar tus reservas y cotizaciones</li>
+                    <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Obtendrás descuentos al realizar tu pedido en línea</li>
+                </ul>
             </div>
         </div>
         
         <div class="flex w-full lg:w-1/2 justify-center items-center imagen_formulario space-y-4 p-4 lg:p-6">
             <div class="w-full max-w-2xl px-4 lg:px-6">
-                <form action="http://localhost:3000/usuarios" method="post" class="bg-white rounded-lg shadow-lg p-4 lg:p-6 space-y-4 grid grid-cols-1 lg:grid-cols-2 gap-4 border border-gray-200">
+                <form id="registerForm" action="http://localhost:3000/usuarios" method="post" class="bg-white rounded-lg shadow-lg p-4 lg:p-6 space-y-4 grid grid-cols-1 lg:grid-cols-2 gap-4 border border-gray-200">
                     <h1 class="text-gray-800 font-bold text-2xl col-span-2 text-center mb-0 pb-0">¡Regístrate!</h1>
                     <p class="text-xs font-normal text-gray-600 col-span-2 text-center mb-0 pb-0">Ingresa tus datos personales</p>
                     
@@ -94,16 +58,12 @@
                         <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
                             <select id="rol" class="pl-2 w-full outline-none border-none rounded-md text-sm" name="rol" required>
                                 <option value="" disabled selected>Selecciona tu rol</option>
-                                <option id="rol_community_manager" value="community_manager">Community Manager</option>
-                                <option id="rol_cajero" value="cajero">Cajero</option>
-                                <option id="rol_administrador" value="administrador">Administrador</option>
+                                <option value="community_manager">Community Manager</option>
+                                <option value="mesero">Mesero</option>
+                                <option value="administrador">Administrador</option>
                             </select>
                         </div>
                     </div>
-
-                    <!-- Campos comunes -->
-                    <input type="hidden" name="id" value="" />
-
                     <div class="flex flex-col space-y-1">
                         <label for="nombre" class="text-gray-700 font-semibold text-xs">Nombre</label>
                         <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
@@ -111,57 +71,7 @@
                             <input id="nombre" class="pl-2 w-full outline-none border-none rounded-md text-sm" type="text" name="nombre" required />
                         </div>
                     </div>
-                    
-                    <!-- Añadir campos específicos para cada rol -->
-                    <div class="rol-community-manager rol-specific">
-                        <div class="flex flex-col space-y-1">
-                            <label for="redes_sociales" class="text-gray-700 font-semibold text-xs">Redes Sociales</label>
-                            <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
-                                <i class="fas fa-share-alt text-gray-400"></i>
-                                <input id="redes_sociales" class="pl-2 w-full outline-none border-none rounded-md text-sm" type="text" name="redes_sociales" />
-                            </div>
-                        </div>
-                        <div class="flex flex-col space-y-1">
-                            <label for="anos_experiencia" class="text-gray-700 font-semibold text-xs">Años de Experiencia</label>
-                            <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
-                                <i class="fas fa-calendar text-gray-400"></i>
-                                <input id="anos_experiencia" class="pl-2 w-full outline-none border-none rounded-md text-sm" type="number" name="anos_experiencia" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="rol-cajero rol-specific">
-                        <div class="flex flex-col space-y-1">
-                            <label for="salario" class="text-gray-700 font-semibold text-xs">Salario</label>
-                            <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
-                                <i class="fas fa-dollar-sign text-gray-400"></i>
-                                <input id="salario" class="pl-2 w-full outline-none border-none rounded-md text-sm" type="text" name="salario" />
-                            </div>
-                        </div>
-                        <div class="flex flex-col space-y-1">
-                            <label for="horario" class="text-gray-700 font-semibold text-xs">Horario</label>
-                            <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
-                                <select id="horario" class="pl-2 w-full outline-none border-none rounded-md text-sm" name="horario">
-                                    <option value="" disabled selected>Selecciona el horario</option>
-                                    <option value="diurno">Diurno</option>
-                                    <option value="nocturno">Nocturno</option>
-                                    <option value="tarde">Tarde</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="rol-administrador rol-specific">
-                        <div class="flex flex-col space-y-1">
-                            <label for="titulo" class="text-gray-700 font-semibold text-xs">Título</label>
-                            <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
-                                <i class="fas fa-graduation-cap text-gray-400"></i>
-                                <input id="titulo" class="pl-2 w-full outline-none border-none rounded-md text-sm" type="text" name="titulo" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Campos comunes restantes -->
+        
                     <div class="flex flex-col space-y-1">
                         <label for="telefono" class="text-gray-700 font-semibold text-xs">Teléfono</label>
                         <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
@@ -169,7 +79,7 @@
                             <input id="telefono" class="pl-2 w-full outline-none border-none rounded-md text-sm" type="text" name="telefono" pattern="[0-9]{10,15}" title="Número de teléfono válido" required />
                         </div>
                     </div>
-            
+        
                     <div class="flex flex-col space-y-1">
                         <label for="numero_documento" class="text-gray-700 font-semibold text-xs">Número de Documento</label>
                         <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
@@ -177,7 +87,7 @@
                             <input id="numero_documento" class="pl-2 w-full outline-none border-none rounded-md text-sm" type="text" name="numero_documento" pattern="[0-9]{8,12}" title="Número de documento válido (8-12 caracteres)" required />
                         </div>
                     </div>
-            
+        
                     <div class="flex flex-col space-y-1">
                         <label for="tipo_documento" class="text-gray-700 font-semibold text-xs">Tipo de Documento</label>
                         <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
@@ -190,6 +100,7 @@
                         </div>
                     </div>
                     
+                    <!-- Columna 2 (continuación) -->
                     <div class="flex flex-col space-y-1">
                         <label for="direccion" class="text-gray-700 font-semibold text-xs">Dirección</label>
                         <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
@@ -197,15 +108,7 @@
                             <input id="direccion" class="pl-2 w-full outline-none border-none rounded-md text-sm" type="text" name="direccion" required />
                         </div>
                     </div>
-            
-                    <div class="flex flex-col space-y-1">
-                        <label for="barrio" class="text-gray-700 font-semibold text-xs">Barrio</label>
-                        <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
-                            <i class="fas fa-map-marker-alt text-gray-400"></i>
-                            <input id="barrio" class="pl-2 w-full outline-none border-none rounded-md text-sm" type="text" name="barrio" required />
-                        </div>
-                    </div>
-            
+
                     <div class="flex flex-col space-y-1">
                         <label for="email" class="text-gray-700 font-semibold text-xs">Correo Electrónico</label>
                         <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
@@ -213,7 +116,7 @@
                             <input id="email" class="pl-2 w-full outline-none border-none rounded-md text-sm" type="email" name="email" required />
                         </div>
                     </div>
-            
+                    
                     <div class="flex flex-col space-y-1">
                         <label for="contrasena" class="text-gray-700 font-semibold text-xs">Contraseña</label>
                         <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
@@ -221,20 +124,126 @@
                             <input id="contrasena" class="pl-2 w-full outline-none border-none rounded-md text-sm" type="password" name="contrasena" minlength="8" required />
                         </div>
                     </div>
-            
-                    <div class="flex flex-col space-y-1">
-                        <label for="confirmar_contrasena" class="text-gray-700 font-semibold text-xs">Confirmar Contraseña</label>
-                        <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
-                            <i class="fas fa-lock text-gray-400"></i>
-                            <input id="confirmar_contrasena" class="pl-2 w-full outline-none border-none rounded-md text-sm" type="password" name="confirmar_contrasena" minlength="8" required />
+                    
+                    <!-- Campos específicos de rol -->
+                    <div class="rol-specific rol-community_manager">
+                        <label for="redes" class="text-gray-700 font-semibold text-xs">Redes sociales</label>
+                        <div class="relative">
+                            <select id="redes" name="redes" class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full pl-10" >
+                                <option value="" disabled selected>Selecciona una red</option>
+                                <option value="Instagram">Instagram</option>
+                                <option value="Facebook">Facebook</option>
+                                <option value="Tiktok">Tiktok</option>
+                            </select>
+                            <i class="absolute left-2 top-1/2 transform -translate-y-1/2 fas fa-share-alt text-gray-500"></i>
                         </div>
                     </div>
-
+                    
+                    <div class="rol-specific rol-mesero">
+                        <label for="horario" class="text-gray-700 font-semibold text-xs">Horario preferido</label>
+                        <div class="relative">
+                            <select id="horario" name="horario" class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full pl-10" >
+                                <option value="" disabled selected>Selecciona un turno</option>
+                                <option value="Mañana">Mañana</option>
+                                <option value="Tarde">Tarde</option>
+                                <option value="Noche">Noche</option>
+                            </select>
+                            <i class="absolute left-2 top-1/2 transform -translate-y-1/2 fas fa-clock text-gray-500"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="rol-specific rol-administrador">
+                        <label for="titulo" class="text-gray-700 font-semibold text-xs">Título</label>
+                        <div class="relative">
+                            <input type="text" id="titulo" name="titulo" class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full pl-10" >
+                            <i class="absolute left-2 top-1/2 transform -translate-y-1/2 fas fa-tag text-gray-500"></i>
+                        </div>
+                    </div>
+                    
                     <!-- Botón de Enviar -->
-                    <button type="submit" class="w-full py-2 px-4 bg-yellow-500 hover:bg-yellow-400 text-white font-semibold rounded-md shadow-md transition duration-300">Registrarse</button>
+                    <div class="flex items-center space-x-2 col-span-2 justify-center">
+                        <button type="submit" class="bg-yellow-400 text-white font-semibold py-2 px-4 rounded-md hover:bg-yellow-500 transition duration-300">
+                            Registrar
+                        </button>
+                    </div>                
                 </form>
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('rol').addEventListener('change', function() {
+            var selectedRole = this.value;
+            var roleSections = document.querySelectorAll('.rol-specific');
+            roleSections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+
+            if (selectedRole) {
+                document.querySelectorAll('.rol-' + selectedRole).forEach(function(section) {
+                    section.style.display = 'block';
+                });
+            }
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Evita el envío normal del formulario
+
+            const formData = new FormData(this); // Obtiene los datos del formulario
+            const data = Object.fromEntries(formData.entries()); // Convierte los datos a un objeto
+
+            // Verificar si el usuario ya está registrado
+            try {
+                const response = await fetch(`http://localhost:3000/usuarios?email=${encodeURIComponent(data.email)}`);
+                const existingUsers = await response.json();
+
+                if (existingUsers.length > 0) {
+                    // Usuario ya registrado
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'El usuario ya está registrado. Por favor, usa otro correo electrónico.',
+                    }).then(() => {
+                        // Limpiar el formulario
+                        document.getElementById('registerForm').reset();
+                    });
+                } else {
+                    // Enviar los datos del formulario
+                    const registerResponse = await fetch('http://localhost:3000/usuarios', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                    });
+
+                    if (registerResponse.ok) {
+                        // Registro exitoso
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Éxito',
+                            text: 'Registro completado exitosamente.',
+                        }).then(() => {
+                            // Redirigir al usuario a la página de inicio
+                            window.location.href = '../index.html';
+                        });
+                    } else {
+                        // Problema con el registro
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Hubo un problema con el registro.',
+                        });
+                    }
+                }
+            } catch (error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Hubo un problema con la verificación del usuario.',
+                });
+            }
+        });
+    </script>
 </body>
 </html>

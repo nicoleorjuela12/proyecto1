@@ -1,8 +1,10 @@
 {
   "dependencies": {
-    "json": "^11.0.0"
+    "express": "^4.19.2",
+    "json": "^11.0.0",
+    "mysql2": "^3.11.0",
+    "sequelize": "^6.37.3"
   },
-
   "scripts": {
     "start-apiproyecto": "json-server --watch formularioregis.json --port 3000"
   }
