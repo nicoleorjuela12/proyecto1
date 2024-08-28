@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="https://i.ibb.co/m92z5kN/Fondo-mila-removebg-preview.png">
+    <link rel="icon" type="image/png" href="https://i.ibb.co/gj0Bpcc/logo-empresa-mila.png">
     <title>Página de Registro -- Mila GastroFusion</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" type="text/css" href="../estilos/estilos_barra.css">
@@ -170,80 +170,65 @@
             </div>
         </div>
     </div>
-
     <script>
-        document.getElementById('rol').addEventListener('change', function() {
-            var selectedRole = this.value;
-            var roleSections = document.querySelectorAll('.rol-specific');
-            roleSections.forEach(function(section) {
-                section.style.display = 'none';
-            });
+    document.getElementById('registerForm').addEventListener('submit', async function(event) {
+        event.preventDefault(); // Evita el envío normal del formulario
 
-            if (selectedRole) {
-                document.querySelectorAll('.rol-' + selectedRole).forEach(function(section) {
-                    section.style.display = 'block';
-                });
-            }
-        });
+        const formData = new FormData(this); // Obtiene los datos del formulario
+        const data = Object.fromEntries(formData.entries()); // Convierte los datos a un objeto
 
-        document.getElementById('registerForm').addEventListener('submit', async function(event) {
-            event.preventDefault(); // Evita el envío normal del formulario
+        // Verificar si el usuario ya está registrado
+        try {
+            const response = await fetch(`http://localhost:3000/usuarios?email=${encodeURIComponent(data.email)}`);
+            const existingUsers = await response.json();
 
-            const formData = new FormData(this); // Obtiene los datos del formulario
-            const data = Object.fromEntries(formData.entries()); // Convierte los datos a un objeto
-
-            // Verificar si el usuario ya está registrado
-            try {
-                const response = await fetch(`http://localhost:3000/usuarios?email=${encodeURIComponent(data.email)}`);
-                const existingUsers = await response.json();
-
-                if (existingUsers.length > 0) {
-                    // Usuario ya registrado
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'El usuario ya está registrado. Por favor, usa otro correo electrónico.',
-                    }).then(() => {
-                        // Limpiar el formulario
-                        document.getElementById('registerForm').reset();
-                    });
-                } else {
-                    // Enviar los datos del formulario
-                    const registerResponse = await fetch('http://localhost:3000/usuarios', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(data),
-                    });
-
-                    if (registerResponse.ok) {
-                        // Registro exitoso
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Éxito',
-                            text: 'Registro completado exitosamente.',
-                        }).then(() => {
-                            // Redirigir al usuario a la página de inicio
-                            window.location.href = '../index.html';
-                        });
-                    } else {
-                        // Problema con el registro
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Error',
-                            text: 'Hubo un problema con el registro.',
-                        });
-                    }
-                }
-            } catch (error) {
+            if (existingUsers.length > 0) {
+                // Usuario ya registrado
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
-                    text: 'Hubo un problema con la verificación del usuario.',
+                    text: 'El usuario ya está registrado. Por favor, usa otro correo electrónico.',
                 });
+
+                // Limpiar el formulario
+                this.reset();
+            } else {
+                // Enviar los datos del formulario
+                const registerResponse = await fetch('http://localhost:3000/usuarios', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json', // Asegúrate de que el Content-Type sea application/json
+                    },
+                    body: JSON.stringify(data), // Convierte el objeto a JSON
+                });
+
+                if (registerResponse.ok) {
+                    // Registro exitoso
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Éxito',
+                        text: 'Registro completado exitosamente.',
+                    }).then(() => {
+                        // Redirigir al usuario a la página de inicio
+                        window.location.href = '../index.html';
+                    });
+                } else {
+                    // Problema con el registro
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Hubo un problema con el registro.',
+                    });
+                }
             }
-        });
-    </script>
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Hubo un problema con la verificación del usuario.',
+            });
+        }
+    });
+</script>
 </body>
 </html>

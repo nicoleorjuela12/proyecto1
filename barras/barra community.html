@@ -4,12 +4,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barra de navegación administrador</title>
+    <title>Barra de navegación mesero</title>
     <link rel="stylesheet" type="text/css" href="../estilos/estilos_barra.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" type="text/css" href="../estilos/estilos barracommun.css">
+    <style>
+        /* Estilos adicionales */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-width: 160px;
+            z-index: 1000;
+            right: 10px;
+        }
+
+        .dropdown-menu a {
+            padding: 12px 16px;
+            display: block;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #ffe8aa;
+        }
+
+        .relative {
+            position: relative;
+        }
+
+        .horizontal-dropdown {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            z-index: 1000;
+            right: 0;
+            top: 100%;
+        }
+
+        .horizontal-dropdown .dropdown-menu {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+
+        .horizontal-dropdown .dropdown-menu a {
+            padding: 12px 16px;
+            display: block;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .horizontal-dropdown .dropdown-menu a:hover {
+            background-color: #ffe8aa;
+        }
+
+        .dropdown-trigger:hover .horizontal-dropdown {
+            display: flex;
+        }
+    </style>
 </head>
 
 <body>
@@ -41,7 +101,7 @@
                     <!-- Imagen para modo pequeño -->
                     <img src="https://via.placeholder.com/150" alt="Imagen adicional" class="block lg:hidden mx-auto mb-2 opacity-0">
                 
-                    <a  href="" class="flex items-center text-gray-900 hover:text-yellow-800 cursor-pointer font-semibold transition-colors duration-300">
+                    <a href="" class="flex items-center text-gray-900 hover:text-yellow-800 cursor-pointer font-semibold transition-colors duration-300">
                         <i class="fa fa-home mr-2"></i> Inicio
                     </a>
                     <a href="" class="flex items-center text-yellow-600 cursor-pointer transition-colors duration-300 font-semibold">
@@ -75,11 +135,8 @@
                     </a>
                     <div id="tareas-menu" class="horizontal-dropdown mt-2 rounded-lg shadow-lg bg-white">
                         <div class="dropdown-menu">
-                            <a href="../lista.html">Usuarios</a>
-                            <a href="#">Reservas</a>
-                            <a href="#">Productos</a>
                             <a href="#">Eventos</a>
-                            <a href="#">Pedidos</a>
+                            <a href="#">Reservas</a>
                         </div>
                     </div>
                 </div>
@@ -105,6 +162,62 @@
         </div>
     </div>
 
+    <script>
+        // Manejar el menú de "Reservas"
+        const reservasButton = document.getElementById('reservas-button');
+        const reservasMenu = document.getElementById('reservas-menu');
+        let reservasMenuVisible = false;
+
+        reservasButton.addEventListener('click', () => {
+            reservasMenuVisible = !reservasMenuVisible;
+            reservasMenu.style.display = reservasMenuVisible ? 'block' : 'none';
+        });
+
+        // Manejar el menú del usuario
+        const userMenuButton = document.getElementById('user-menu-button');
+        const userMenu = document.getElementById('user-menu');
+        let userMenuVisible = false;
+
+        userMenuButton.addEventListener('click', () => {
+            userMenuVisible = !userMenuVisible;
+            userMenu.style.display = userMenuVisible ? 'block' : 'none';
+        });
+
+        // Cerrar los menús si el usuario hace clic fuera de ellos
+        document.addEventListener('click', (event) => {
+            if (!reservasButton.contains(event.target) && !reservasMenu.contains(event.target)) {
+                reservasMenu.style.display = 'none';
+                reservasMenuVisible = false;
+            }
+            if (!userMenuButton.contains(event.target) && !userMenu.contains(event.target)) {
+                userMenu.style.display = 'none';
+                userMenuVisible = false;
+            }
+        });
+
+        const toggleButton = document.querySelector('[data-collapse-toggle]');
+        const menu = document.getElementById('mobile-menu-2');
+
+        toggleButton.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        });
+
+        // Manejar el menú de "Tareas"
+        const tareasButton = document.getElementById('tareas-button');
+        const tareasMenu = document.getElementById('tareas-menu');
+
+        tareasButton.addEventListener('click', () => {
+            tareasMenu.style.display = tareasMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Cerrar el menú de "Tareas" si el usuario hace clic fuera de él
+        document.addEventListener('click', (event) => {
+            if (!tareasButton.contains(event.target) && !tareasMenu.contains(event.target)) {
+                tareasMenu.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 
 </html>

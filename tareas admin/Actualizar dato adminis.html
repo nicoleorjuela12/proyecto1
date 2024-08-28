@@ -28,31 +28,15 @@
     </head>
     <body>
 
-        <div id="navbar"></div>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                fetch('../barras/barranormal.html')
-                    .then(response => response.text())
-                    .then(data => {
-                        document.getElementById('navbar').innerHTML = data;
-                    })
-                    .catch(error => console.error('Error loading the navbar:', error));
-            });
-        </script>
-
         <div class="h-screen flex flex-col lg:flex-row mt-0">
             <!-- Imagen de fondo -->
             <div class="hidden lg:flex w-full lg:w-1/2 espacio_imagen1 justify-around items-center">
                 <div class="bg-black opacity-20 inset-0 z-0"></div>
                 <div class="w-full mx-auto px-20 flex-col items-center space-y-6 mb-4">
-                    <h1 class="text-white font-bold text-4xl font-sansc ml-28 font-normal text-yellow-300">Beneficios de Registrarse</h1>
+                    <h1 class="text-white font-bold text-4xl font-sansc ml-28 font-normal text-yellow-300">Beneficios de Actualizar datos</h1>
                     <ul class="text-white list-style-type: none list-inside ml-20 padding-bottom-36 text-1xl font-normal ml-28">
-                        <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Invitaciones a Eventos Especiales</li>
-                        <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Notificaciones y Recordatorios</li>
-                        <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Podras realizar tus reservas y cotizaciones</li>
-                        <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Obtendras descuentos al realizar tu pedido en linea</li>
-                    </ul>
+                        <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Informacion real y consisa</li>
+                        <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 3%;"></i>Podra llegar tu informacion a de los procesos a tu correo</li>                    </ul>
                 </div>
             </div>
             
@@ -139,9 +123,9 @@
                             <div class="flex items-center border-2 border-yellow-300 py-1 px-2 rounded-md w-full">
                                 <i class="fas fa-user-tag text-gray-400"></i>
                                 <select id="rol" class="pl-2 w-full outline-none border-none rounded-md text-sm" name="rol" required>
-                                    <option value="Cliente" selected>Cliente</option>
+                                    <option value="Cliente" selected>Administrador</option>
                                     <option value="Mesero">Mesero</option>
-                                    <option value="Administrador">Administrador</option>
+                                    <option value="Administrador">Cliente</option>
                                     <option value="Community Manager">Community Manager</option>
                                 </select>
                             </div>

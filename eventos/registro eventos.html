@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Evento</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-cover bg-center min-h-screen flex items-center justify-center" style="background-image: url('https://media.istockphoto.com/id/1430391884/es/foto/enfoque-selectivo-mesa-de-madera-con-bokeh-de-luz-borrosa-en-caf%C3%A9-nocturno-oscuro-fondo-de.webp?b=1&s=612x612&w=0&k=20&c=HrF-hcheguvvrGvvvgBWsKuraPVlYx4lem05NoZFlX4=');">
+
+    <div class="mx-auto w-full max-w-[1000px] bg-white bg-opacity-70 rounded-lg p-8 shadow-lg shadow-gray-500">
+        <h1 class="text-2xl font-bold text-center text-black mb-6" style="font-family: 'Playfair Display', serif;">Registrar evento</h1>
+        <form action="http://localhost:3000/eventos" method="POST" enctype="multipart/form-data">
+            <!-- Título: Datos del evento -->
+            <h2 class="mb-4 text-lg font-semibold text-gray-800">Datos del evento</h2>
+            <div class="border-b-2 border-yellow-500 mb-4"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="mb-5">
+                <label for="nombreEvento" class="mb-2 block text-sm font-semibold text-gray-700"><i class="fas fa-calendar-alt"></i> Nombre del evento</label>
+                <input type="text" name="nombreEvento" id="nombreEvento" placeholder="Nombre del evento" class="w-full rounded-md border border-yellow-400 bg-white py-3 px-4 text-base font-medium text-gray-700 placeholder-black outline-none focus:border-yellow-600 focus:ring focus:ring-yellow-200" />
+              </div>
+              <div class="mb-5">
+                <label for="ubicacion" class="mb-2 block text-sm font-semibold text-gray-700"><i class="fas fa-map-marker-alt"></i> Ubicación</label>
+                <input type="text" name="ubicacion" id="ubicacion" placeholder="Ubicación" class="w-full rounded-md border border-yellow-400 bg-white py-3 px-4 text-base font-medium text-gray-700 placeholder-black outline-none focus:border-yellow-600 focus:ring focus:ring-yellow-200" />
+              </div>
+              <div class="mb-5">
+                <label for="capacidad" class="mb-2 block text-sm font-semibold text-gray-700"><i class="fas fa-users"></i> Capacidad</label>
+                <input type="number" name="capacidad" id="capacidad" placeholder="Capacidad" min="1" class="w-full rounded-md border border-yellow-400 bg-white py-3 px-4 text-base font-medium text-gray-700 placeholder-black outline-none focus:border-yellow-600 focus:ring focus:ring-yellow-200" />
+              </div>
+              <div class="mb-5">
+                <label for="precio" class="mb-2 block text-sm font-semibold text-gray-700"><i class="fas fa-dollar-sign"></i> Precio por persona</label>
+                <input type="number" name="precio" id="precio" placeholder="Precio por persona" min="0" step="0.01" class="w-full rounded-md border border-yellow-400 bg-white py-3 px-4 text-base font-medium text-gray-700 placeholder-black outline-none focus:border-yellow-600 focus:ring focus:ring-yellow-200" />
+              </div>
+              <div class="mb-5">
+                <label for="estadoEvento" class="mb-2 block text-sm font-semibold text-gray-700"><i class="fas fa-clipboard-check"></i> Estado del evento</label>
+                <input type="text" name="estadoEvento" id="estadoEvento" placeholder="Estado del evento" class="w-full rounded-md border border-yellow-400 bg-white py-3 px-4 text-base font-medium text-gray-700 placeholder-black outline-none focus:border-yellow-600 focus:ring focus:ring-yellow-200" />
+              </div>
+            </div>
+
+            <!-- Título: Fechas y tiempos del evento -->
+            <h2 class="mb-4 text-lg font-semibold text-gray-800">Fechas y tiempos del evento</h2>
+            <div class="border-b-2 border-yellow-500 mb-4"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="mb-5">
+                <label for="horaInicio" class="mb-2 block text-sm font-semibold text-gray-700"><i class="fas fa-clock"></i> Hora de inicio</label>
+                <input type="time" name="horaInicio" id="horaInicio" class="w-full rounded-md border border-yellow-400 bg-white py-3 px-4 text-base font-medium text-gray-700 placeholder-black outline-none focus:border-yellow-600 focus:ring focus:ring-yellow-200" />
+              </div>
+              <div class="mb-5">
+                <label for="horaFin" class="mb-2 block text-sm font-semibold text-gray-700"><i class="fas fa-clock"></i> Hora de fin</label>
+                <input type="time" name="horaFin" id="horaFin" class="w-full rounded-md border border-yellow-400 bg-white py-3 px-4 text-base font-medium text-gray-700 placeholder-black outline-none focus:border-yellow-600 focus:ring focus:ring-yellow-200" />
+              </div>
+              <div class="mb-5">
+                <label for="fechaEvento" class="mb-2 block text-sm font-semibold text-gray-700"><i class="fas fa-calendar-alt"></i> Fecha del evento</label>
+                <input type="date" name="fechaEvento" id="fechaEvento" class="w-full rounded-md border border-yellow-400 bg-white py-3 px-4 text-base font-medium text-gray-700 placeholder-black outline-none focus:border-yellow-600 focus:ring focus:ring-yellow-200" />
+              </div>
+              <div class="mb-5">
+                <label for="fechaLimite" class="mb-2 block text-sm font-semibold text-gray-700"><i class="fas fa-calendar-times"></i> Fecha límite</label>
+                <input type="date" name="fechaLimite" id="fechaLimite" class="w-full rounded-md border border-yellow-400 bg-white py-3 px-4 text-base font-medium text-gray-700 placeholder-black outline-none focus:border-yellow-600 focus:ring focus:ring-yellow-200" />
+              </div>
+            </div>
+
+            <!-- Título: Comentarios y descripción -->
+            <h2 class="mb-4 text-lg font-semibold text-gray-800">Comentarios y descripción</h2>
+            <div class="border-b-2 border-yellow-500 mb-4"></div>
+            <div class="mb-5">
+              <label for="descripcion" class="mb-2 block text-sm font-semibold text-gray-700"><i class="fas fa-comment"></i> Descripción</label>
+              <textarea name="descripcion" id="descripcion" placeholder="Descripción" class="w-full rounded-md border border-yellow-400 bg-white py-3 px-4 text-base font-medium text-gray-700 placeholder-black outline-none focus:border-yellow-600 focus:ring focus:ring-yellow-200"></textarea>
+            </div>
+            <div class="mb-5">
+              <label for="imagenEvento" class="mb-2 block text-sm font-semibold text-gray-700"><i class="fas fa-image"></i> Imagen del evento</label>
+              <input type="file" name="imagenEvento" id="imagenEvento" class="w-full rounded-md border border-yellow-400 bg-white py-3 px-4 text-base font-medium text-gray-700 outline-none focus:border-yellow-600 focus:ring focus:ring-yellow-200" />
+            </div>
+
+            <div>
+              <button type="submit" class="transition duration-200 hover:bg-yellow-600 rounded-md bg-yellow-500 py-3 px-8 text-center text-base font-semibold text-black outline-none">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('eventoForm').addEventListener('submit', async function(event) {
+          event.preventDefault(); // Previene el envío normal del formulario
+      
+          const formData = new FormData(this);
+      
+          try {
+            const response = await fetch(this.action, {
+              method: 'POST',
+              body: formData
+            });
+      
+            if (response.ok) {
+              await Swal.fire({
+                icon: 'success',
+                title: 'Registro exitoso',
+                text: 'El evento ha sido registrado correctamente.',
+              });
+              this.reset(); // Opcional: Limpiar el formulario
+            } else {
+              throw new Error('Error al registrar el evento');
+            }
+          } catch (error) {
+            await Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: error.message,
+            });
+          }
+        });
+      </script>
+      
+</body>
+</html>

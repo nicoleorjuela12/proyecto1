@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Reserva local</title>
+    <link rel="icon" type="image/png" href="https://i.ibb.co/gj0Bpcc/logo-empresa-mila.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../estilos/freservas.css">
@@ -136,7 +137,18 @@
                             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                 <input type="hidden" id="grid-status" name="estado_reserva" value="Confirmada">
                             </div>
-                            
+                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0 hidden">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex items-center" for="grid-tipo-reserva">
+                                    <i class="fas fa-tasks icon mr-2"></i>
+                                    Tipo Reserva
+                                </label>
+                                <div class="relative">
+                                    <select name="tipo_reserva" id="grid-tipo-reserva" class="block appearance-none w-full bg-gray-200 border border-[#D2B48C] text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-[#D2B48C]">
+                                        <option value="reserva_local">Reserva local</option>
+                                        <option value="reserva_mesa" selected>Reserva mesa</option>
+                                    </select>
+                                </div>
+                            </div>
                             <!-- Casilla -->
                             <div class="w-full flex justify-center mt-6 mb-6">
                                 <div class="center-checkbox">
@@ -144,7 +156,7 @@
                                     <label for="terms-checkbox" class="text-gray-700 text-xs font-bold">Acepto los <a href="#" id="terms-link" class="text-[#D2B48C] underline">términos y condiciones</a>.</label>
                                 </div>
                             </div>
-
+                            
                             <div class="w-full flex justify-center mt-6">
                                 <button id="submit-button" class="bg-[#D2B48C] hover:bg-[#D2B48C] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ease-in-out" type="submit">
                                     Reservar

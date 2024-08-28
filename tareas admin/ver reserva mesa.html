@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom styles for intense gold color */
+        .border-gold-600 {
+            border-color: #FFC300; /* Intense Gold color */
+        }
+        .text-gold-600 {
+            color: #FFC300; /* Intense Gold color */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="max-w-[1200px] mx-auto">
+        <div class="w-full flex justify-between items-center mb-3 mt-12 pl-3">
+            <div>
+                <h3 class="text-lg font-semibold text-slate-800">Reserva Local</h3>
+                <p class="text-slate-500">Visualiza las reservas realizadas</p>
+            </div>
+            <div class="mx-3">
+                <div class="relative w-full max-w-sm min-w-[200px]">
+                    <input class="w-full h-10 pr-11 pl-3 py-2 text-sm text-slate-700 placeholder:text-slate-400 bg-white border border-gold-600 rounded shadow-sm transition duration-300 ease focus:outline-none focus:border-gold-600 focus:shadow-md hover:border-gold-600" placeholder="Busca la reserva" />
+                    <button class="absolute top-1 right-1 h-8 w-8 flex items-center bg-white rounded" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-8 h-8 text-slate-600">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="relative flex flex-col w-full h-full overflow-auto text-gray-700 bg-white shadow-md rounded-lg bg-clip-border">
+            <table class="w-full text-left table-auto min-w-max">
+                <thead>
+                    <tr class="border-b border-gold-600 bg-slate-50">
+                        <th class="p-4 text-sm font-normal text-slate-500">Nombre</th>
+                        <th class="p-4 text-sm font-normal text-slate-500">Celular</th>
+                        <th class="p-4 text-sm font-normal text-slate-500">Correo</th>
+                        <th class="p-4 text-sm font-normal text-slate-500">Documento</th>
+                        <th class="p-4 text-sm font-normal text-slate-500">Número de personas</th>
+                        <th class="p-4 text-sm font-normal text-slate-500">Fecha</th>
+                        <th class="p-4 text-sm font-normal text-slate-500">Hora</th>
+                        <th class="p-4 text-sm font-normal text-slate-500">Comentarios</th>
+                        <th class="p-4 text-sm font-normal text-slate-500">Decoracion</th>
+                        <th class="p-4 text-sm font-normal text-slate-500">Actividades</th>
+                        <th class="p-4 text-sm font-normal text-slate-500"></th>
+                    </tr>
+                </thead>
+                <tbody id="reservas-body">
+                    <!-- Aquí se agregarán dinámicamente las reservas -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("http://localhost:3000/reservas")
+                .then(response => response.json())
+                .then(data => {
+                    const reservasMesa = data.filter(reserva => reserva.tipo_reserva === "reserva_mesa");
+                    const reservasBody = document.getElementById("reservas-body");
+
+                    reservasMesa.forEach(reserva => {
+                        const row = document.createElement("tr");
+                        row.classList.add("hover:bg-slate-50");
+
+                        row.innerHTML = `
+                            <td class="p-4 border-b border-gold-600">${reserva.nombre}</td>
+                            <td class="p-4 border-b border-gold-600">${reserva.celular}</td>
+                            <td class="p-4 border-b border-gold-600">${reserva.correo}</td>
+                            <td class="p-4 border-b border-gold-600">${reserva.documento}</td>
+                            <td class="p-4 border-b border-gold-600">${reserva.numero_personas}</td>
+                            <td class="p-4 border-b border-gold-600">${reserva.fecha}</td>
+                            <td class="p-4 border-b border-gold-600">${reserva.hora}</td>
+                            <td class="p-4 border-b border-gold-600">${reserva.comentarios}</td>
+                            <td class="p-4 border-b border-gold-600">${reserva.decoracion}</td>
+                            <td class="p-4 border-b border-gold-600">${reserva.actividades}</td>
+                            <td class="p-4 border-b border-gold-600">
+                                <button type="button" class="text-slate-500 hover:text-slate-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15M4.5 12h15" />
+                                    </svg>
+                                </button>
+                            </td>
+                        `;
+
+                        reservasBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+    
+</body>
+</html>
